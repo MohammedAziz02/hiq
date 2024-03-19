@@ -136,6 +136,10 @@ steps:
     command: |
       python3 -m venv transformers_env
   - type: Command
+    name: "python version"
+    command: |
+      python3 --version
+  - type: Command
     name: "Activate the Environment"
     command: |
       source transformers_env/bin/activate
