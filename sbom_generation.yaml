@@ -28,9 +28,6 @@ steps:
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-fastapi.txt --of JSON -o artifactSBOM.json --sv 1.4
   - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
-  - type: Command
     name: "Create a Virtual Environment for requirements-gpu"
     command: |
       python3 -m venv gpu_env
@@ -51,9 +48,6 @@ steps:
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-gpu.txt --of JSON -o artifactSBOM.json --sv 1.4
-  - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
   - type: Command
     name: "Create a Virtual Environment for requirements-int"
     command: |
@@ -76,9 +70,6 @@ steps:
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-int.txt --of JSON -o artifactSBOM.json --sv 1.4
   - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
-  - type: Command
     name: "Create a Virtual Environment for requirements-lavis"
     command: |
       python3 -m venv lavis_env
@@ -99,9 +90,6 @@ steps:
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-lavis.txt --of JSON -o artifactSBOM.json --sv 1.4
-  - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
   - type: Command
     name: "Create a Virtual Environment for requirements-nodeps"
     command: |
@@ -124,9 +112,6 @@ steps:
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-nodeps.txt --of JSON -o artifactSBOM.json --sv 1.4
   - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
-  - type: Command
     name: "Create a Virtual Environment for requirements-transformers"
     command: |
       python3 -m venv transformers_env
@@ -148,9 +133,6 @@ steps:
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-transformers.txt --of JSON -o artifactSBOM.json --sv 1.4
   - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
-  - type: Command
     name: "Create a Virtual Environment for requirements"
     command: |
       python3 -m venv requirements_env
@@ -171,9 +153,6 @@ steps:
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
       cyclonedx-py requirements dependencies-frozen-requirements.txt --of JSON -o artifactSBOM.json --sv 1.4
-  - type: Command
-    name: "deactivate the Environment"
-    command: deactivate
   - type: Command
     name: "Download CycloneDx-cli executable and install dependencies"
     command: |
