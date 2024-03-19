@@ -26,7 +26,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-fastapi.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-fastapi.txt --of JSON -o fastapi-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements-gpu"
     command: |
@@ -47,7 +47,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-gpu.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-gpu.txt --of JSON -o gpu-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements-int"
     command: |
@@ -68,7 +68,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-int.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-int.txt --of JSON -o int-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements-lavis"
     command: |
@@ -89,7 +89,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-lavis.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-lavis.txt --of JSON -o lavis-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements-nodeps"
     command: |
@@ -110,7 +110,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-nodeps.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-nodeps.txt --of JSON -o nodeps-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements-transformers"
     command: |
@@ -131,7 +131,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-transformers.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-transformers.txt --of JSON -o transformers-bom.json --sv 1.4
   - type: Command
     name: "Create a Virtual Environment for requirements"
     command: |
@@ -152,7 +152,7 @@ steps:
     name: "Run Python cyclonedx_py module"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
-      cyclonedx-py requirements dependencies-frozen-requirements.txt --of JSON -o artifactSBOM.json --sv 1.4
+      cyclonedx-py requirements dependencies-frozen-requirements.txt --of JSON -o default-bom.json --sv 1.4
   - type: Command
     name: "Download CycloneDx-cli executable and install dependencies"
     command: |
