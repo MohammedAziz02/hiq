@@ -9,7 +9,7 @@ steps:
   - type: Command
     name: "Install cyclonedx_py module"
     command: |
-      pip install cyclonedx-bom
+      pip install cyclonedx-bom==3.11.7
   - type: Command
     name: "Run Python cyclonedx_py module"
     command: |
