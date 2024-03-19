@@ -19,6 +19,10 @@ steps:
     command: |
       pip install cyclonedx-bom
   - type: Command
+    name: "Install the dependencies in the hiq/requirements-fastapi.txt file"
+    command: |
+      pip install -r hiq/requirements-fastapi.txt
+  - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-fastapi.txt file with the latest version"
     command: |
       pip freeze -q -r hiq/requirements-fastapi.txt | sed '/freeze/,$ d' > dependencies-frozen-fastapi.txt
@@ -39,6 +43,10 @@ steps:
     name: "Install cyclonedx_py module"
     command: |
       pip install cyclonedx-bom
+  - type: Command
+    name: "Install the dependencies in the hiq/requirements-gpu.txt file"
+    command: |
+      pip install -r hiq/requirements-gpu.txt
   - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-gpu.txt file with the latest version"
     command: |
@@ -61,6 +69,10 @@ steps:
     command: |
       pip install cyclonedx-bom
   - type: Command
+    name: "Install the dependencies in the hiq/requirements-int.txt file"
+    command: |
+      pip install -r hiq/requirements-int.txt
+  - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-lavis.txt file with the latest version"
     command: |
       pip freeze -q -r hiq/requirements-int.txt | sed '/freeze/,$ d' > dependencies-frozen-int.txt
@@ -81,6 +93,10 @@ steps:
     name: "Install cyclonedx_py module"
     command: |
       pip install cyclonedx-bom
+  - type: Command
+    name: "Install the dependencies in the hiq/requirements-lavis.txt file"
+    command: |
+      pip install -r hiq/requirements-lavis.txt
   - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-lavis.txt file with the latest version"
     command: |
@@ -103,6 +119,10 @@ steps:
     command: |
       pip install cyclonedx-bom
   - type: Command
+    name: "Install the dependencies in the hiq/requirements-nodeps.txt file"
+    command: |
+      pip install -r hiq/requirements-nodeps.txt
+  - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-nodeps.txt file with the latest version"
     command: |
       pip freeze -q -r hiq/requirements-nodeps.txt | sed '/freeze/,$ d' > dependencies-frozen-nodeps.txt
@@ -124,6 +144,10 @@ steps:
     command: |
       pip install cyclonedx-bom
   - type: Command
+    name: "Install the dependencies in the hiq/requirements-transformers.txt file"
+    command: |
+      pip install -r hiq/requirements-transformers.txt
+  - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements-transformers.txt file with the latest version"
     command: |
       pip freeze -q -r hiq/requirements-transformers.txt | sed '/freeze/,$ d' > dependencies-frozen-transformers.txt
@@ -144,6 +168,10 @@ steps:
     name: "Install cyclonedx_py module"
     command: |
       pip install cyclonedx-bom
+  - type: Command
+    name: "Install the dependencies in the hiq/requirements.txt file"
+    command: |
+      pip install -r hiq/requirements.txt
   - type: Command
     name: "create a new requirements file that contains only the dependencies in the hiq/requirements.txt file with the latest version"
     command: |
