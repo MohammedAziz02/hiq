@@ -7,19 +7,173 @@ shell: bash
 
 steps:
   - type: Command
+    name: "Create a Virtual Environment for requirements-fastapi"
+    command: |
+      python3 -m venv fastapi_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source fastapi_env/bin/activate
+  - type: Command
     name: "Install cyclonedx_py module"
     command: |
-      pip install cyclonedx-bom==3.11.7
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-fastapi.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-fastapi.txt | sed '/freeze/,$ d' > dependencies-frozen-fastapi.txt
   - type: Command
     name: "Run Python cyclonedx_py module"
     command: |
-      python3 -m cyclonedx_py -r -i hiq/requirements-fastapi.txt -pb --format json -o fastapi-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements-gpu.txt -pb --format json -o gpu-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements-int.txt -pb --format json -o int-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements-lavis.txt -pb --format json -o lavis-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements-nodeps.txt -pb --format json -o nodeps-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements-transformers.txt -pb --format json -o transformers-bom.json
-      python3 -m cyclonedx_py -r -i hiq/requirements.txt -pb --format json -o default-bom.json
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-fastapi.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements-gpu"
+    command: |
+      python3 -m venv gpu_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source gpu_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-gpu.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-gpu.txt | sed '/freeze/,$ d' > dependencies-frozen-gpu.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-gpu.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements-int"
+    command: |
+      python3 -m venv int_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source int_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-lavis.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-int.txt | sed '/freeze/,$ d' > dependencies-frozen-int.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-int.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements-lavis"
+    command: |
+      python3 -m venv lavis_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source lavis_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-lavis.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-lavis.txt | sed '/freeze/,$ d' > dependencies-frozen-lavis.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-lavis.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements-nodeps"
+    command: |
+      python3 -m venv nodeps_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source nodeps_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-nodeps.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-nodeps.txt | sed '/freeze/,$ d' > dependencies-frozen-nodeps.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-nodeps.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements-transformers"
+    command: |
+      python3 -m venv transformers_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source transformers_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements-transformers.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements-transformers.txt | sed '/freeze/,$ d' > dependencies-frozen-transformers.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-transformers.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
+  - type: Command
+    name: "Create a Virtual Environment for requirements"
+    command: |
+      python3 -m venv requirements_env
+  - type: Command
+    name: "Activate the Environment"
+    command: |
+      source requirements_env/bin/activate
+  - type: Command
+    name: "Install cyclonedx_py module"
+    command: |
+      pip install cyclonedx-bom
+  - type: Command
+    name: "create a new requirements file that contains only the dependencies in the hiq/requirements.txt file with the latest version"
+    command: |
+      pip freeze -q -r hiq/requirements.txt | sed '/freeze/,$ d' > dependencies-frozen-requirements.txt
+  - type: Command
+    name: "Run Python cyclonedx_py module"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-python/blob/main/README.md
+      cyclonedx-py requirements dependencies-frozen-requirements.txt --of JSON -o artifactSBOM.json --sv 1.4
+  - type: Command
+    name: "deactivate the Environment"
+    command: deactivate
   - type: Command
     name: "Download CycloneDx-cli executable and install dependencies"
     command: |
